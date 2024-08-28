@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Guess</title>
+    <link rel="stylesheet" href="/styles/index.css">
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>CSdle</h1>
+        <p>Boa sorte :)</p>
+    </div>
+
+    <div class="guess-input">
+        <!-- Campo de entrada com datalist -->
+        <input list="gameSuggestions" id="guessInput" placeholder="Digite uma arma para começar...">
+        <button onclick="makeGuess()">Adivinhar</button>
+
+        <!-- Datalist contendo as sugestões -->
+        <datalist id="gameSuggestions">
+            <% weapons.forEach(function(weapon) { %>
+                <option value=<%= weapon.Name %>></option>
+                <% }); %>
+        </datalist>
+    </div>
+
+    <div class="hearts">
+        <span class="heart">❤️</span>
+        <span class="heart">❤️</span>
+        <span class="heart">❤️</span>
+        <span class="heart">❤️</span>
+        <span class="heart">❤️</span>
+        <span class="heart">❤️</span>
+        <span class="heart">❤️</span>
+    </div>
+
+    <div class="categories">
+        <div class="category-wrapper">
+            <div class="category-label">Nome</div>
+            <div class="category" id="categoryName">-</div>
+        </div>
+        <div class="category-wrapper">
+            <div class="category-label">Time</div>
+            <div class="category" id="categoryTeam">-</div>
+        </div>
+        <div class="category-wrapper">
+            <div class="category-label">Custo</div>
+            <div class="category" id="categoryYear">-</div>
+        </div>
+        <div class="category-wrapper">
+            <div class="category-label">Dano</div>
+            <div class="category" id="categoryGenre">-</div>
+        </div>
+        <div class="category-wrapper">
+            <div class="category-label">Clip</div>
+            <div class="category" id="categoryTheme">-</div>
+        </div>
+    </div>
+
+    <script src="/scripts/index.js"></script>
+
+</body>
+
+</html>
