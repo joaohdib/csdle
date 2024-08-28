@@ -1,5 +1,5 @@
 const correctWeapon = {
-    name: 'ak-47',
+    name: 'AK-47',
     team: 'T',
     cost: 2700,
     damage: 36,
@@ -55,9 +55,15 @@ function makeGuess() {
 }
 
 function verifyGuess(weaponGuessed) {
+
+    const name = document.getElementById('categoryName');
+
+    name.textContent = weaponGuessed.Name;
+
     console.log(weaponGuessed.Team);
     console.log(correctWeapon.team);
 
+    
 
     if (guessInput === correctWeapon.name) {
         win();
@@ -65,17 +71,46 @@ function verifyGuess(weaponGuessed) {
 
     else {
         verifyTeam(weaponGuessed.Team, correctWeapon.team);
+        verifyCost(weaponGuessed.Cost, correctWeapon.cost);
     }
+
+    return;
 }
 
 function verifyTeam(teamGuess, teamCorrect) {
+
+    const categoryTeam = document.getElementById('categoryTeam');
+    categoryTeam.textContent = teamGuess;
     if (teamGuess == teamCorrect) {
-        document.getElementById('categoryTeam').className = 'category correct'
+        categoryTeam.className = 'category correct'
     }
-    else if (teamCorrect== "B" || teamGuess == 'B') {
-        document.getElementById('categoryTeam').className = 'category semicorrect'
+    else if (teamCorrect == "B" || teamGuess == 'B') {
+        categoryTeam.className = 'category semicorrect'
     }
     else {
-        document.getElementById('categoryTeam').className = 'category incorrect'
+        categoryTeam.className = 'category incorrect'
+    }
+}
+
+function verifyCost(costGuess, costCorrect) {
+    let arrow;
+    const categoryCost = document.getElementById('categoryCost');
+    categoryCost.textContent = costGuess;
+    if (costGuess === costCorrect) {
+        document.getElementById('categoryCost').className = 'category correct'
+    }
+    else {
+        document.getElementById('categoryCost').className = 'category incorrect'
+        if (costGuess < costCorrect) {
+            arrow = document.getElementsByClassName('arrow down')[0];
+            arrow.style.visibility = "block";
+
+        }
+
+        else {
+            arrow = document.getElementsByClassName('arrow up')[0];
+            console.log(arrow);
+            arrow.style.visibility = "visible";
+        }
     }
 }

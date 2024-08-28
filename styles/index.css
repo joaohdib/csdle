@@ -65,6 +65,7 @@ input[list]:focus {
 }
 
 .category {
+    position: relative;
     padding: 20px;
     background-color: #f39c12;
     border-radius: 8px;
@@ -93,4 +94,35 @@ input[list]:focus {
     color: red;
     font-size: 1.5em;
     margin-right: 5px;
+}
+
+.arrow {
+    position: absolute;
+    width: 100%;
+    border: none;
+    background: transparent;
+    font-size: 0.85em;
+    color: white;
+    visibility: hidden;
+}
+
+.arrow.up {
+    top: 0px; /* Ajuste conforme necessário */
+    left: 0;
+    text-align: center;
+}
+
+.arrow.down {
+    bottom: 0px; /* Ajuste conforme necessário */
+    left: 0;
+    text-align: center;
+}
+
+#categoryCost, #categoryDamage, #categoryClip {
+    position: relative;
+}
+
+#costValue, #damageValue, #clipValue {
+    font-size: 1.2em;
+    margin: 0;
 }
