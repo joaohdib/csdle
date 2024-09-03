@@ -21,18 +21,17 @@ function makeGuess() {
     fetch("/getWeapon", {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json' // Define o tipo de conteúdo
+            'Content-Type': 'application/json' 
         },
-        body: JSON.stringify(data) // Converte os dados para JSON
+        body: JSON.stringify(data) 
     })
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-            return response.json(); // Converte a resposta para JSON
+            return response.json(); 
         })
         .then(data => {
-            console.log('Data received:', data); // Manipula os dados recebidos
             verifyGuess(data);
         })
         .catch(error => {
@@ -77,7 +76,8 @@ function verifyTeam(teamGuess, teamCorrect) {
 
 function verifyCost(costGuess, costCorrect) {
     let arrow;
-    const categoryCost = document.getElementById('costValue' + counter.toString());
+    const categoryCost = document.getElementsByClassName('costValue' + counter.toString())[0];
+    console.log(categoryCost);
     console.log('costValue' + counter.toString());
     categoryCost.textContent = costGuess;
     if (costGuess === costCorrect) {
@@ -86,13 +86,13 @@ function verifyCost(costGuess, costCorrect) {
     else {
         document.getElementById('categoryCost').className = 'category incorrect'
         if (costGuess < costCorrect) {
-            arrow = document.getElementsByClassName('arrow down')[0];
+            arrow = document.getElementsByClassName(('arrow down' + counter.toString()))[0];
             arrow.style.visibility = "visible";
 
         }
 
         else {
-            arrow = document.getElementsByClassName('arrow up')[0];
+            arrow = document.getElementsByClassName(('arrow up' + counter.toString()))[0];
             arrow.style.visibility = "visible";
         }
     }
@@ -101,6 +101,7 @@ function verifyCost(costGuess, costCorrect) {
 function verifyDamage(damageGuess, damageCorrect) {
     let arrow;
     const categoryDamage = document.getElementById('damageValue' + counter.toString());
+
     categoryDamage.textContent = damageGuess;
     if (damageGuess === damageCorrect) {
         document.getElementById('categoryDamage').className = 'category correct'
@@ -108,7 +109,6 @@ function verifyDamage(damageGuess, damageCorrect) {
     else {
         document.getElementById('categoryDamage').className = 'category incorrect'
         if (damageGuess < damageCorrect) {
-            console.log("aqui");
             arrow = document.getElementsByClassName('arrow down')[1];
             arrow.style.visibility = "visible";
 
@@ -149,9 +149,11 @@ function createCategory() {
     const details3 = document.createElement('div');
     details3.className = "costValue" + counter.toString();
     const arrowup3 = document.createElement('button');
+    arrowup3.id = 'arrow up' + counter.toString();
     arrowup3.className = 'arrow up';
     arrowup3.textContent = '▲';
     const arrowdown3 = document.createElement('button');
+    arrowdown3.id = 'arrow down' + counter.toString();
     arrowdown3.className = 'arrow down';
     arrowdown3.textContent = '▼';
     category3.appendChild(arrowup3);
@@ -164,10 +166,10 @@ function createCategory() {
     const details4 = document.createElement('div');
     details4.className = "damageValue" + counter.toString();
     const arrowup4 = document.createElement('button');
-    arrowup4.className = 'arrow up';
+    arrowup4.className = 'arrow up' + counter.toString();
     arrowup4.textContent = '▲';
     const arrowdown4 = document.createElement('button');
-    arrowdown4.className = 'arrow down';
+    arrowdown4.className = 'arrow down' + counter.toString();
     arrowdown4.textContent = '▼';
     category4.appendChild(arrowup4);
     category4.appendChild(details4);
@@ -179,9 +181,11 @@ function createCategory() {
     const details5 = document.createElement('div');
     details5.className = "clipValue" + counter.toString();
     const arrowup5 = document.createElement('button');
+    arrowup5.id = 'arrow up' + counter.toString();
     arrowup5.className = 'arrow up';
     arrowup5.textContent = '▲';
     const arrowdown5 = document.createElement('button');
+    arrowdown5.id = 'arrow down' + counter.toString();
     arrowdown5.className = 'arrow down';
     arrowdown5.textContent = '▼';
     category5.appendChild(arrowup5);
@@ -203,6 +207,6 @@ function createCategory() {
 
 
     document.body.appendChild(newDiv);
-
+    console.log("criei")
     return;
 }
