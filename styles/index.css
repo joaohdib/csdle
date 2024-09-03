@@ -126,3 +126,63 @@ input[list]:focus {
     font-size: 1.2em;
     margin: 0;
 }
+
+.game-over {
+    visibility: hidden;
+    position: fixed; /* Fixa a posição em relação à viewport */
+    top: 0; /* Começa no topo da viewport */
+    left: 0; /* Começa na esquerda da viewport */
+    width: 100vw; /* Largura da viewport */
+    height: 100vh; /* Altura da viewport */
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo semi-transparente */
+    color: white;
+    display: flex; /* Usa flexbox para centralizar o conteúdo */
+    flex-direction: column; /* Alinha o conteúdo verticalmente */
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
+    justify-content: center; /* Centraliza o conteúdo verticalmente */
+    z-index: 1000; /* Valor alto para garantir que fique acima dos outros elementos */
+    pointer-events: auto; /* Garante que a div capture eventos de clique */
+    overflow: hidden; /* Garante que o conteúdo não saia da tela */
+}
+
+.game-over h2, .victory h2 {
+    margin: 0;
+    font-size: 2.5em; /* Tamanho maior para destaque */
+}
+
+.game-over p, .victory p {
+    font-size: 1.5em; /* Tamanho maior para destaque */
+}
+
+.game-over button, .victory button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px; /* Aumenta a distância do texto acima */
+}
+
+.game-over button:hover, .victory button:hover {
+    background-color: #2980b9;
+}
+
+.victory {
+    visibility: hidden;
+    position: fixed; /* Fixa a posição em relação à viewport */
+    top: 0; /* Começa no topo da viewport */
+    left: 0; /* Começa na esquerda da viewport */
+    width: 100vw; /* Largura da viewport */
+    height: 100vh; /* Altura da viewport */
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo semi-transparente */
+    color: white;
+    display: flex; /* Usa flexbox para centralizar o conteúdo */
+    flex-direction: column; /* Alinha o conteúdo verticalmente */
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
+    justify-content: center; /* Centraliza o conteúdo verticalmente */
+    z-index: 1000; /* Valor alto para garantir que fique acima dos outros elementos */
+    pointer-events: auto; /* Garante que a div capture eventos de clique */
+    overflow: hidden; /* Garante que o conteúdo não saia da tela */
+}

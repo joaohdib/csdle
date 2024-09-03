@@ -22,10 +22,9 @@ const taskSchema = new Schema({
         required: true
     },
 
-    clipSize: {
+    clip_size: {
         type: Number,
         required: true,
-        alias: 'Clip Size'
     }
 
 });

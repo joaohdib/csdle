@@ -34,46 +34,51 @@
         <span class="heart">❤️</span>
         <span class="heart">❤️</span>
         <span class="heart">❤️</span>
-        <span class="heart">❤️</span>
-        <span class="heart">❤️</span>
     </div>
+
+    <div></div>
 
     <div class="categories">
         <div class="category-wrapper">
             <div class="category-label">Nome</div>
-            <div class="category" id="categoryName">-</div>
+            <div class="category" id="categoryName"></div>
         </div>
         <div class="category-wrapper">
             <div class="category-label">Time</div>
-            <div class="category" id="categoryTeam">-</div>
+            <div class="category" id="categoryTeam"></div>
         </div>
         <div class="category-wrapper">
             <div class="category-label">Custo</div>
             <div class="category" id="categoryCost">
-                <button class="arrow up">▲</button>
-                <div id="costValue">-</div>
-                <button class="arrow down">▼</button>
+                <div id="costValue"></div>
             </div>
         </div>
         <div class="category-wrapper">
             <div class="category-label">Dano</div>
             <div class="category" id="categoryDamage">
-                <button class="arrow up">▲</button>
-                <div id="damageValue">-</div>
-                <button class="arrow down">▼</button>
+                <div id="damageValue"></div>
             </div>
         </div>
         <div class="category-wrapper">
             <div class="category-label">Clip</div>
             <div class="category" id="categoryClip">
-                <button class="arrow up">▲</button>
-                <div id="clipValue">-</div>
-                <button class="arrow down">▼</button>
+                <div id="clipValue"></div>
             </div>
         </div>
     </div>
 
-    <script src="/scripts/index.js"></script>
+    <div id="gameOver" class="game-over">
+        <h2>Game Over</h2>
+        <p>Infelizmente, você perdeu. Tente novamente!</p>
+    </div>
+
+    <div id="victory" class="victory">
+        <h2>Você Venceu!</h2>
+        <p>Parabéns! Você adivinhou corretamente.</p>
+        <button onclick="restartGame()">Jogar Novamente</button>
+    </div>
+
+    <script src="/scripts/index.js"></script> 
 
 </body>
 
