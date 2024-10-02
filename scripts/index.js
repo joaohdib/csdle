@@ -50,15 +50,18 @@ function verifyGuess(weaponGuessed) {
 
     updateLife();
     verifyTeam(weaponGuessed.Team, correctWeapon.team);
-    verifyCost(weaponGuessed.Cost, correctWeapon.Cost);
+    verifyCost(weaponGuessed.Cost, correctWeapon.cost);
     verifyDamage(weaponGuessed.Damage, correctWeapon.damage);
-    verifyClip(weaponGuessed.clip_size, correctWeapon.clip_size);
+    verifyClip(weaponGuessed.clip_size, correctWeapon.clipSize);
 
     if (lifeCount == 0) {
         document.getElementById('gameOver').style.visibility = 'visible';
     }
 
-    if (name == correctWeapon.name) {
+    console.log(name.textContent);
+    console.log(correctWeapon.name);
+
+    if (name.textContent == correctWeapon.name) {
         document.getElementById('victory').style.visibility = 'visible';
     }
 
@@ -85,7 +88,8 @@ function verifyTeam(teamGuess, teamCorrect) {
 function verifyCost(costGuess, costCorrect) {
     let arrow;
     const categoryCost = document.getElementsByClassName('costValue' + counter.toString())[0];
-    console.log(categoryCost);
+    console.log(costCorrect);
+    console.log(costGuess);
     console.log('costValue' + counter.toString());
     categoryCost.textContent = costGuess;
     if (costGuess == costCorrect) {
@@ -113,7 +117,7 @@ function verifyDamage(damageGuess, damageCorrect) {
     const categoryDamage = document.getElementsByClassName('damageValue' + counter.toString())[0];
 
     categoryDamage.textContent = damageGuess;
-    if (damageGuess === damageCorrect) {
+    if (damageGuess == damageCorrect) {
         document.getElementById('categoryDamage' + counter.toString()).className = 'category correct'
     }
     else {
@@ -137,7 +141,7 @@ function verifyClip(clipGuess, clipCorrect) {
     const categoryClip = document.getElementsByClassName('clipValue' + counter.toString())[0];
 
     categoryClip.textContent = clipGuess;
-    if (clipGuess === clipCorrect) {
+    if (clipGuess == clipCorrect) {
         document.getElementById('categoryClip' + counter.toString()).className = 'category correct'
     }
     else {
