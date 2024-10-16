@@ -16,15 +16,15 @@
     </div>
 
     <div class="guess-input">
-        <!-- Campo de entrada com datalist -->
+
         <input list="gameSuggestions" id="guessInput" placeholder="Digite uma arma para começar...">
         <button onclick="makeGuess()">Adivinhar</button>
 
-        <!-- Datalist contendo as sugestões -->
+
         <datalist id="gameSuggestions">
             <% weapons.forEach(function(weapon) { %>
-                <option value=<%= weapon.Name %>></option>
-                <% }); %>
+                <option value="<%= weapon.Name %>"></option>
+            <% }); %>
         </datalist>
     </div>
 

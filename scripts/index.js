@@ -1,10 +1,31 @@
-const correctWeapon = {
-    name: 'AK-47',
-    team: 'T',
-    cost: 2700,
-    damage: 36,
-    clipSize: 30
-};
+// URL da API
+// Fazendo o fetch
+
+let data;
+let correctWeapon;
+
+fetch("/getWeaponOfDay", {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+})
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log(data)
+        correctWeapon = data
+        console.log(correctWeapon)
+    })
+    .catch(error => {
+        console.error('There was a problem with your fetch operation:', error);
+    });
+
+
 let counter = 0;
 let lifeCount = 5;
 
@@ -49,19 +70,19 @@ function verifyGuess(weaponGuessed) {
 
 
     updateLife();
-    verifyTeam(weaponGuessed.Team, correctWeapon.team);
-    verifyCost(weaponGuessed.Cost, correctWeapon.cost);
-    verifyDamage(weaponGuessed.Damage, correctWeapon.damage);
-    verifyClip(weaponGuessed.clip_size, correctWeapon.clipSize);
+    verifyTeam(weaponGuessed.Team, correctWeapon.Team);
+    verifyCost(weaponGuessed.Cost, correctWeapon.Cost);
+    verifyDamage(weaponGuessed.Damage, correctWeapon.Damage);
+    verifyClip(weaponGuessed.clip_size, correctWeapon.clip_size);
 
     if (lifeCount == 0) {
         document.getElementById('gameOver').style.visibility = 'visible';
     }
 
     console.log(name.textContent);
-    console.log(correctWeapon.name);
+    console.log(correctWeapon.Name);
 
-    if (name.textContent == correctWeapon.name) {
+    if (name.textContent == correctWeapon.Name) {
         document.getElementById('victory').style.visibility = 'visible';
     }
 
